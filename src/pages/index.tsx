@@ -1,7 +1,7 @@
-import {Grid, Typography} from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useRouter } from "next/router";
-import {useRecoilValue} from "recoil";
+import { useRecoilValue } from "recoil";
 import { userEmailState } from "../store/selectors/userEmail"
 import { isUserLoading } from "../store/selectors/isUserLoading";
 
@@ -14,7 +14,7 @@ export default function Landing() {
             <Grid item xs={12} md={6} lg={6}>
                 <div style={{marginTop: 100}}>
                     <Typography variant={"h2"}>
-                        Coursera Admin
+                        Courzero Admin
                     </Typography>
                     <Typography variant={"h5"}>
                         A place to learn, earn and grow

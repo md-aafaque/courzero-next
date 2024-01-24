@@ -1,12 +1,12 @@
 import Button from '@mui/material/Button';
 import TextField from "@mui/material/TextField";
-import {Card, Typography} from "@mui/material";
-import {useState} from "react";
+import { Card, Typography } from "@mui/material";
+import { useState } from "react";
 import axios from "axios";
-import {useSetRecoilState} from "recoil";
-import {userState} from "../store/atoms/user.js";
+import { useSetRecoilState } from "recoil";
+import { userState } from "../store/atoms/user";
 import { useRouter } from 'next/router.js';
-import { BASE_URL } from '@/config.js';
+import { BASE_URL } from '@/config';
 
 function Signin() {
     const [email, setEmail] = useState("")
@@ -22,7 +22,7 @@ function Signin() {
                 justifyContent: "center"
             }}>
                 <Typography variant={"h6"}>
-                Welcome to Coursera. Sign up below
+                Welcome to Courzero. Sign up below
                 </Typography>
             </div>
         <div style={{display: "flex", justifyContent: "center"}}>

@@ -1,9 +1,9 @@
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import {Card} from "@mui/material";
-import {useState} from "react";
+import { Card } from "@mui/material";
+import { useState } from "react";
 import axios from "axios";
-import { BASE_URL } from "../config.js"
+import { BASE_URL } from "../config"
 function AddCourse() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");

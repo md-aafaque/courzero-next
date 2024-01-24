@@ -1,6 +1,6 @@
 import { Button, Card, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import { BASE_URL } from "../config.js";
+import { BASE_URL } from "../config";
 import axios from "axios";
 import { useRouter } from "next/router.js";
 import { Course } from "@/store/atoms/course.js";

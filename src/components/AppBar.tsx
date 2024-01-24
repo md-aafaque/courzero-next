@@ -1,9 +1,9 @@
-import {Typography} from "@mui/material";
+import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useRouter } from "next/router.js";
 import { isUserLoading } from "../store/selectors/isUserLoading";
-import {useSetRecoilState, useRecoilValue} from "recoil";
-import { userState } from "../store/atoms/user.js";
+import { useSetRecoilState, useRecoilValue } from "recoil";
+import { userState } from "../store/atoms/user";
 import { userEmailState } from "../store/selectors/userEmail"
 
 function Appbar({}) {
@@ -26,7 +26,7 @@ function Appbar({}) {
             <div style={{marginLeft: 10, cursor: "pointer"}} onClick={() => {
                 router.push("/")
             }}>
-                <Typography variant={"h6"}>Coursera</Typography>
+                <Typography variant={"h6"}>Courzero</Typography>
             </div>
     
             <div style={{display: "flex"}}>
@@ -70,7 +70,7 @@ function Appbar({}) {
             <div style={{marginLeft: 10, cursor: "pointer"}} onClick={() => {
                 router.push("/")
             }}>
-                <Typography variant={"h6"}>Coursera</Typography>
+                <Typography variant={"h6"}>Courzero</Typography>
             </div>
     
             <div style={{display: "flex"}}>
