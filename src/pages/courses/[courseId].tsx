@@ -2,7 +2,7 @@ import { Card, Grid } from "@mui/material";
 import { useEffect, useState } from "react"
 import { Typography, TextField, Button } from "@mui/material";
 import axios from "axios";
-import {Loading} from "../../components/loading";
+import { Loading } from "../../components/Loading";
 import { BASE_URL } from "../../config";
 import { Course, courseState } from "../../store/atoms/course";
 import {useRecoilState, useRecoilValue, useSetRecoilState} from "recoil";
