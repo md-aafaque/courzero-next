@@ -1,16 +1,16 @@
 import { Card, Grid } from "@mui/material";
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom";
 import { Typography, TextField, Button } from "@mui/material";
 import axios from "axios";
-import {Loading} from "./Loading";
+import {Loading} from "../Loading";
 import { BASE_URL } from "../config.js";
-import { courseState } from "../store/atoms/course";
+import { courseState } from "../../store/atoms/course";
 import {useRecoilState, useRecoilValue, useSetRecoilState} from "recoil";
-import { courseTitle, coursePrice, isCourseLoading, courseImage } from "../store/selectors/course";
+import { courseTitle, coursePrice, isCourseLoading, courseImage } from "../../store/selectors/course";
+import { useRouter } from "next/router";
 
 function Course() {
-    let { courseId } = useParams();
+    let courseId = useRouter().query.courseId;
     const setCourse = useSetRecoilState(courseState);
     const courseLoading = useRecoilValue(isCourseLoading);
 
