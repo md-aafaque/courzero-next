@@ -5,7 +5,7 @@ import {useRecoilValue} from "recoil";
 import { userEmailState } from "../store/selectors/userEmail"
 import { isUserLoading } from "../store/selectors/isUserLoading";
 
-export const Landing = () => {
+export default function Landing() {
     const router = useRouter();
     const userEmail = useRecoilValue(userEmailState);
     const userLoading = useRecoilValue(isUserLoading);
