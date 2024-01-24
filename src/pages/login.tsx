@@ -6,6 +6,7 @@ import axios from "axios";
 import {useSetRecoilState} from "recoil";
 import {userState} from "../store/atoms/user.js";
 import { useRouter } from 'next/router.js';
+import { BASE_URL } from '@/config.js';
 
 function Signin() {
     const [email, setEmail] = useState("")
