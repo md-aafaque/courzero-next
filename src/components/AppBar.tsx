@@ -1,13 +1,13 @@
 import {Typography} from "@mui/material";
 import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/router.js";
 import { isUserLoading } from "../store/selectors/isUserLoading";
 import {useSetRecoilState, useRecoilValue} from "recoil";
 import { userState } from "../store/atoms/user.js";
 import { userEmailState } from "../store/selectors/userEmail"
 
 function Appbar({}) {
-    const navigate = useNavigate()
+    const router = useRouter()
     const userLoading = useRecoilValue(isUserLoading);
     const userEmail = useRecoilValue(userEmailState);
     const setUser = useSetRecoilState(userState);
@@ -24,7 +24,7 @@ function Appbar({}) {
             zIndex: 1
         }}>
             <div style={{marginLeft: 10, cursor: "pointer"}} onClick={() => {
-                navigate("/")
+                router.push("/")
             }}>
                 <Typography variant={"h6"}>Coursera</Typography>
             </div>
@@ -34,7 +34,7 @@ function Appbar({}) {
                 <div style={{marginRight: 10}}>
                         <Button
                             onClick={() => {
-                                navigate("/addcourse")
+                                router.push("/addcourse")
                             }}
                         >Add course</Button>
                     </div>
@@ -42,7 +42,7 @@ function Appbar({}) {
                     <div style={{marginRight: 10}}>
                         <Button
                             onClick={() => {
-                                navigate("/courses")
+                                router.push("/courses")
                             }}
                         >Courses</Button>
                     </div>
@@ -68,7 +68,7 @@ function Appbar({}) {
             zIndex: 1
         }}>
             <div style={{marginLeft: 10, cursor: "pointer"}} onClick={() => {
-                navigate("/")
+                router.push("/")
             }}>
                 <Typography variant={"h6"}>Coursera</Typography>
             </div>
@@ -78,7 +78,7 @@ function Appbar({}) {
                     <Button
                         variant={"contained"}
                         onClick={() => {
-                            navigate("/signup")
+                            router.push("/signup")
                         }}
                     >Signup</Button>
                 </div>
@@ -86,7 +86,7 @@ function Appbar({}) {
                     <Button
                         variant={"contained"}
                         onClick={() => {
-                            navigate("/signin")
+                            router.push("/signin")
                         }}
                     >Signin</Button>
                 </div>
