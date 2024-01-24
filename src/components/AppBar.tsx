@@ -50,7 +50,7 @@ function Appbar({}) {
                     <Button
                         variant={"contained"}
                         onClick={() => {
-                            localStorage.setItem("token", null);
+                            localStorage.removeItem("token");
                             setUser({
                                 isLoading: false,
                                 userEmail: null
