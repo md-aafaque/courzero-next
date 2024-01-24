@@ -4,7 +4,7 @@ import { Typography, TextField, Button } from "@mui/material";
 import axios from "axios";
 import {Loading} from "../../components/loading";
 import { BASE_URL } from "../../config";
-import { courseState } from "../../store/atoms/course";
+import { Course, courseState } from "../../store/atoms/course";
 import {useRecoilState, useRecoilValue, useSetRecoilState} from "recoil";
 import { courseTitle, coursePrice, isCourseLoading, courseImage } from "../../store/selectors/course";
 import { useRouter } from "next/router";
@@ -61,10 +61,10 @@ function GrayTopper() {
 function UpdateCard() {
     const [courseDetails, setCourse] = useRecoilState(courseState);
 
-    const [title, setTitle] = useState(courseDetails.course.title);
-    const [description, setDescription] = useState(courseDetails.course.description);
-    const [image, setImage] = useState(courseDetails.course.imageLink);
-    const [price, setPrice] = useState(courseDetails.course.price);
+    const [title, setTitle] = useState(courseDetails.course?.title || '');
+    const [description, setDescription] = useState(courseDetails.course?.description || '');
+    const [image, setImage] = useState(courseDetails.course?.imageLink || '');
+    const [price, setPrice] = useState(courseDetails.course?.price || 0);
 
     return <div style={{display: "flex", justifyContent: "center"}}>
     <Card variant={"outlined"} style={{maxWidth: 600, marginTop: 200}}>
@@ -106,7 +106,7 @@ function UpdateCard() {
                 value={price}
                 style={{marginBottom: 10}}
                 onChange={(e) => {
-                    setPrice(e.target.value)
+                    setPrice(Number(e.target.value))
                 }}
                 fullWidth={true}
                 label="Price"
@@ -116,7 +116,7 @@ function UpdateCard() {
             <Button
                 variant="contained"
                 onClick={async () => {
-                    axios.put(`${BASE_URL}/admin/courses/` + courseDetails.course._id, {
+                    axios.put(`${BASE_URL}/admin/courses/` + courseDetails.course?._id, {
                         title: title,
                         description: description,
                         imageLink: image,
@@ -128,8 +128,8 @@ function UpdateCard() {
                             "Authorization": "Bearer " + localStorage.getItem("token")
                         }
                     });
-                    let updatedCourse = {
-                        _id: courseDetails.course._id,
+                    let updatedCourse: Course = {
+                        _id: courseDetails.course?._id || 0,
                         title: title,
                         description: description,
                         imageLink: image,
@@ -143,7 +143,7 @@ function UpdateCard() {
 </div>
 }
 
-function CourseCard(props) {
+function CourseCard() {
     const title = useRecoilValue(courseTitle);
     const imageLink = useRecoilValue(courseImage);
 
