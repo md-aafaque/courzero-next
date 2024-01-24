@@ -12,7 +12,7 @@ function AddCourse() {
 
     return <div style={{display: "flex", justifyContent: "center", minHeight: "80vh", justifyContent: "center", flexDirection: "column"}}>
         <div style={{display: "flex", justifyContent: "center"}}>
-            <Card varint={"outlined"} style={{width: 400, padding: 20, marginTop: 30, height: "100%"}}>
+            <Card variant={"outlined"} style={{width: 400, padding: 20, marginTop: 30, height: "100%"}}>
                 <TextField
                     style={{marginBottom: 10}}
                     onChange={(e) => {
