@@ -1,12 +1,12 @@
 import {Grid, Typography} from "@mui/material";
 import Button from "@mui/material/Button";
-import {useNavigate} from "react-router-dom";
+import { useRouter } from "next/router";
 import {useRecoilValue} from "recoil";
 import { userEmailState } from "../store/selectors/userEmail"
 import {isUserLoading} from "../store/selectors/isUserLoading.js";
 
 export const Landing = () => {
-    const navigate = useNavigate()
+    const router = useRouter();
     const userEmail = useRecoilValue(userEmailState);
     const userLoading = useRecoilValue(isUserLoading);
     return <div>
@@ -25,7 +25,7 @@ export const Landing = () => {
                                 size={"large"}
                                 variant={"contained"}
                                 onClick={() => {
-                                    navigate("/signup")
+                                    router.push("/signup")
                                 }}
                             >Signup</Button>
                         </div>
@@ -34,7 +34,7 @@ export const Landing = () => {
                                 size={"large"}
                                 variant={"contained"}
                                 onClick={() => {
-                                    navigate("/signin")
+                                    router.push("/signin")
                                 }}
                             >Signin</Button>
                         </div>

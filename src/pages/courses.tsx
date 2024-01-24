@@ -1,8 +1,8 @@
 import { Button, Card, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import {useNavigate} from "react-router-dom";
 import { BASE_URL } from "../config.js";
 import axios from "axios";
+import { useRouter } from "next/router.js";
 
 function Courses() {
     const [courses, setCourses] = useState([]);
@@ -28,7 +28,7 @@ function Courses() {
 }
 
 export function Course({course}) {
-    const navigate = useNavigate();
+    const router = useRouter();
 
     return <Card style={{
         margin: 10,
@@ -41,7 +41,7 @@ export function Course({course}) {
         <img src={course.imageLink} style={{width: 300}} ></img>
         <div style={{display: "flex", justifyContent: "center", marginTop: 20}}>
             <Button variant="contained" size="large" onClick={() => {
-                navigate("/course/" + course._id);
+                router.push("/course/" + course._id);
             }}>Edit</Button>
         </div>
     </Card>

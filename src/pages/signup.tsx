@@ -4,14 +4,14 @@ import {Card, Typography} from "@mui/material";
 import {useState} from "react";
 import axios from "axios";
 import { BASE_URL } from "../config.js";
-import {useNavigate} from "react-router-dom";
 import {useSetRecoilState} from "recoil";
 import {userState} from "../store/atoms/user.js";
+import { useRouter } from 'next/router.js';
 
 function Signup() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const navigate = useNavigate()
+    const router = useRouter();
     const setUser = useSetRecoilState(userState);
 
     return <div>
@@ -59,7 +59,7 @@ function Signup() {
                         localStorage.setItem("token", data.token);
                         // window.location = "/"
                         setUser({userEmail: email, isLoading: false})
-                        navigate("/courses")
+                        router.push("/courses");
                     }}
 
                 > Signup</Button>
