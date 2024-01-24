@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import { useRouter } from "next/router";
 import {useRecoilValue} from "recoil";
 import { userEmailState } from "../store/selectors/userEmail"
-import {isUserLoading} from "../store/selectors/isUserLoading.js";
+import { isUserLoading } from "../store/selectors/isUserLoading";
 
 export const Landing = () => {
     const router = useRouter();
