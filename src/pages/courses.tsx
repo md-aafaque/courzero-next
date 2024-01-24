@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import { BASE_URL } from "../config.js";
 import axios from "axios";
 import { useRouter } from "next/router.js";
+import { Course } from "@/store/atoms/course.js";
 
 function Courses() {
-    const [courses, setCourses] = useState([]);
+    const [courses, setCourses] = useState<Course[]>([]);
 
     const init = async () => {
         const response = await axios.get(`${BASE_URL}/admin/courses/`, {
@@ -27,7 +28,7 @@ function Courses() {
     </div>
 }
 
-export function Course({course}) {
+export function Course({course}: {course: Course}) {
     const router = useRouter();
 
     return <Card style={{
