@@ -10,7 +10,7 @@ function AddCourse() {
     const [image, setImage] = useState("");
     const [price, setPrice] = useState(0)
 
-    return <div style={{display: "flex", justifyContent: "center", minHeight: "80vh", justifyContent: "center", flexDirection: "column"}}>
+    return <div style={{display: "flex", justifyContent: "center", minHeight: "80vh", flexDirection: "column"}}>
         <div style={{display: "flex", justifyContent: "center"}}>
             <Card variant={"outlined"} style={{width: 400, padding: 20, marginTop: 30, height: "100%"}}>
                 <TextField
@@ -46,7 +46,7 @@ function AddCourse() {
                 <TextField
                     style={{marginBottom: 10}}
                     onChange={(e) => {
-                        setPrice(e.target.value)
+                        setPrice(Number(e.target.value))
                     }}
                     fullWidth={true}
                     label="Price"
