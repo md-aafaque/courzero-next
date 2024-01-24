@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
 
-function InitUser() {
+export const InitUser = () => {
     const setUser = useSetRecoilState(userState);
     const init = async() => {
         try {
